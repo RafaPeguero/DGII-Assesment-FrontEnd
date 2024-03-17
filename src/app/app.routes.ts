@@ -6,16 +6,16 @@ import { TaxpayerPageComponent } from './Taxpayer/pages/taxpayer-page/taxpayer-p
 
 export const routes: Routes = [
     {
-        path: 'taxpayer',
+        path: 'taxpayers',
         component: TaxpayerPageComponent
     },
     {
-        path: 'tax-receipt',
+        path: 'tax-receipts',
        component: TaxReceiptPageComponent
     },
     {
         path: '',
-        redirectTo: 'taxpayer',
+        redirectTo: 'taxpayers',
         pathMatch: 'full'
     }
 ];
