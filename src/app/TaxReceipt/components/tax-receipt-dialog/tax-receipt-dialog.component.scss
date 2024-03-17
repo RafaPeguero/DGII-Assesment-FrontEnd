@@ -1,0 +1,17 @@
+.actions-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    button {
+        margin-left: 10px;
+    }
+}
+
+.sum-result {
+    display: flex;
+    justify-content: flex-center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}

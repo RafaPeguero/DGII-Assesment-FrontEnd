@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Comprobantes fiscales de RNC/Cédula : <strong> {{data.taxpayerId}} </strong> </h2>
+<mat-dialog-content>
+  <mat-card class="sum-result" *ngIf="taxReceipts.length > 0">
+    <mat-card-content> La suma total de todas los comprobantes fiscales es : <strong>{{SumOfTaxReceipts | currency}}</strong> </mat-card-content>
+  </mat-card>
+    <app-taxreceipt-table [taxReceipts]="taxReceipts" [showTaxPayerId]="false"></app-taxreceipt-table>
+</mat-dialog-content>
+<mat-dialog-actions class="actions-buttons">
+  <button mat-button (click)="close()">Cerrar</button>
+</mat-dialog-actions>
