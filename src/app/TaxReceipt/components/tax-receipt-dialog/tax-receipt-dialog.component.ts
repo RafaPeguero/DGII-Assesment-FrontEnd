@@ -5,7 +5,7 @@ import { TaxReceiptComponent } from '../tax-receipt/tax-receipt.component';
 import { TaxReceiptService } from '../../services/tax-receipt.service';
 import { Select } from '@ngxs/store';
 import { AppSelectors } from '../../../state/app.selectors';
-import { Observable } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { ITaxReceipt } from '../../../models/taxReceipt.model';
 import { TaxreceiptTableComponent } from '../taxreceipt-table/taxreceipt-table.component';
 import { CommonModule } from '@angular/common';
@@ -21,12 +21,13 @@ export class TaxReceiptDialogComponent {
   
   @Select(AppSelectors.getTaxReceiptsByTaxpayerId) taxReceipts$!: Observable<ITaxReceipt[]>;
   taxReceipts: ITaxReceipt[] = [];
+  private destroyed$ = new Subject();
 
   constructor(public dialogRef: MatDialogRef<TaxReceiptDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {}
 
     ngOnInit() {
-      this.taxReceipts$.subscribe((taxreceipts) => {
+      this.taxReceipts$.pipe(takeUntil(this.destroyed$)).subscribe((taxreceipts) => {
         this.taxReceipts = taxreceipts;
       })
     }
@@ -40,5 +41,10 @@ export class TaxReceiptDialogComponent {
         total += taxReceipt.itbis18;
       })
       return total;
+    }
+
+    ngOnDestroy(): void {
+      this.destroyed$.next(true);
+      this.destroyed$.complete();
     }
 }
