@@ -21,7 +21,7 @@ export class TaxpayerComponent {
   @Select(AppSelectors.getTaxpayers) taxpayers$!: Observable<ITaxpayer[]>;
   taxpayers: ITaxpayer[] = [];
   filterValue: string = '';
-  private destroyed$ = new Subject();
+  public destroyed$ = new Subject();
 
   constructor() { }
 

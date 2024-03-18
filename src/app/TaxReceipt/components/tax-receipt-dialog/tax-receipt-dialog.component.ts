@@ -21,7 +21,7 @@ export class TaxReceiptDialogComponent {
   
   @Select(AppSelectors.getTaxReceiptsByTaxpayerId) taxReceipts$!: Observable<ITaxReceipt[]>;
   taxReceipts: ITaxReceipt[] = [];
-  private destroyed$ = new Subject();
+  public destroyed$ = new Subject();
 
   constructor(public dialogRef: MatDialogRef<TaxReceiptDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {}

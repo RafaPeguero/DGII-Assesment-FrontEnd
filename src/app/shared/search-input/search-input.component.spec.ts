@@ -1,6 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { SearchInputComponent } from './search-input.component';
+import { MaterialModule } from '../material/material.module';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EventEmitter } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('SearchInputComponent', () => {
   let component: SearchInputComponent;
@@ -8,7 +13,7 @@ describe('SearchInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SearchInputComponent]
+      imports: [SearchInputComponent,MaterialModule,FormsModule,BrowserAnimationsModule]
     })
     .compileComponents();
     

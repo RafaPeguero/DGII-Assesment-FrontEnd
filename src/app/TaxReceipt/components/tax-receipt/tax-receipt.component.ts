@@ -20,7 +20,7 @@ export class TaxReceiptComponent {
   @Select(AppSelectors.getTaxReceipts) taxReceipt$!: Observable<ITaxReceipt[]>;
   taxReceipts: ITaxReceipt[] = [];
   filterValue: string = '';
-  private destroyed$ = new Subject();
+  public destroyed$ = new Subject();
 
   constructor() { }
 
