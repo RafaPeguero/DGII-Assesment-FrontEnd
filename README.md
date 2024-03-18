@@ -36,7 +36,7 @@ Here are some images of the Application:
 
 3- The list of all Tax receipts stored on the database
 
-![Alt text](./src//assets/images/readme-images/4-Lista-todos-los-comprobantes.png)
+![Alt text](./src//assets/images/readme-images/3-Lista-todos-los-comprobantes.png)
 
 
 ## Development server
